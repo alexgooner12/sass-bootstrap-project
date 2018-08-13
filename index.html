@@ -11,9 +11,9 @@
   <link rel="stylesheet" href="css/style.css">
   <title>Mizuxe site</title>
 </head>
-<body>
+<body id="home" data-spy="scroll" data-target="#main-nav">
     
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="main-nav">
      <div class="container">
           <a class="navbar-brand" href="#home">
               <img src="img/mlogo.png" width="50" height="50" alt="mizuke logo">
@@ -345,6 +345,25 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-    crossorigin="anonymous"></script>  
+    crossorigin="anonymous"></script>
+  <script>
+    $('body').scrollspy({target: '#main-nav'});
+
+    // Smooth Scrolling
+    $("#main-nav a").on('click', function (event) {
+      if (this.hash !== "") {
+        event.preventDefault();
+
+        const hash = this.hash;
+
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 800, function () {
+
+          window.location.hash = hash;
+        });
+      }
+    });
+  </script>  
   </body>
 </html>
