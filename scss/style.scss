@@ -37,12 +37,16 @@ body {
     }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
     #showcase {
         min-height: 500px;
     
         h1 {
           font-size: 3.5rem;
         }
+    }
+    
+    .mb-resp {
+        margin-bottom: 1rem;
     }
 }
